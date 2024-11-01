@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcılar</title>
+    <style>
+        body {
+            margin: 0; /* Varsayılan margin'leri kaldır */
+            padding: 0; /* Varsayılan padding'leri kaldır */
+            background-color: black; /* Arka planı siyah yap */
+            color: white; /* Yazı rengi beyaz */
+            font-family: Arial, sans-serif; /* Yazı tipi */
+        }
+
+        h1 {
+            text-align: center; /* Başlığı ortala */
+            padding: 20px; /* Üst ve alt boşluk ekle */
+            margin: 0; /* Varsayılan üst ve alt boşlukları sıfırla */
+        }
+
+        table {
+            width: 80%; /* Tablo genişliği */
+            margin: 20px auto; /* Ortala */
+            border-collapse: collapse; /* Kenarları birleştir */
+        }
+
+        th, td {
+            padding: 10px; /* İç boşluk ekle */
+            text-align: center; /* Metni ortala */
+            border: 1px solid yellow; /* Kenar rengi sarı */
+        }
+
+        th {
+            background-color: #333; /* Başlık arka plan rengi koyu gri */
+            color: white; /* Başlık yazı rengi beyaz */
+        }
+
+        tr:nth-child(even) {
+            background-color: #444; /* Çift satırların arka plan rengi koyu gri */
+        }
+
+        tr:hover {
+            background-color: #555; /* Üzerine gelindiğinde satır rengi değişimi */
+        }
+    </style>
+</head>
+<body>
+    <h1>Kullanıcı Listesi</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>İsim</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(user => { %>
+                <tr>
+                    <td><%= user.id %></td>
+                    <td><%= user.name %></td>
+                    <td><%= user.email %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
+
