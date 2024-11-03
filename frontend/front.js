@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify({ email, password })
         });
 
-        if (response.redirected) {
-            window.location.href = '/home.html';
+        if (response.ok) {
+            window.location.href = 'http://localhost:7474/home.html';
         } else {
             const data = await response.json();
             messageDiv.textContent = data.message || 'Bir hata oluştu';

@@ -44,6 +44,7 @@ body {
 #sidebar .dropdown {
     margin-top: 20px; 
     padding: 10px; 
+    display: block; 
 }
 
 #sidebar .dropdown h3 {
@@ -56,9 +57,10 @@ body {
 #sidebar .dropdown a {
     padding: 10px 15px;
     text-decoration: none;
+    display: block; 
     font-size: 16px;
     color: #ffffff; 
-    display: block; 
+    
     border-radius: 5px;
     transition: 0.3s; 
 }
@@ -156,6 +158,23 @@ button:hover {
     padding: 10px;
     border-radius: 5px;
     border: 2px solid yellow; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+#productList li button {
+    background-color: yellow; 
+    color: black; 
+    border: none; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-left: 1px;
+}
+
+#productList li button:hover {
+    background-color: #b8b814 ; 
 }
 
 #notification {
