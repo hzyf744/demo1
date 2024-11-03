@@ -2,9 +2,12 @@ const express = require('express');
 const { Pool } = require('pg');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
+
 
 const app = express();
 const port = 3000;
+
 
 const pool = new Pool({
   user: 'recep',
@@ -18,6 +21,8 @@ app.set('views', path.join(__dirname, 'kayitlar'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'frontend')));
+app.use(cors());
+
 
 
 app.post('/add-product', async (req, res) => {
@@ -108,7 +113,7 @@ app.post('/login', async (req, res) => {
         const result = await pool.query(query, [email, password]);
         if (result.rows.length > 0) {
             console.log('Giriş başarılı:', result.rows[0]); 
-            res.redirect('http://localhost:7474/home.html');
+            res.redirect('http://192.168.92.128:7474/home.html');
         } else {
             console.log('Yanlış email veya şifre'); 
             res.status(401).json({ message: 'Yanlış email veya şifre' });
@@ -130,7 +135,8 @@ app.get('/users', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Sunucu http://localhost:${port} adresinde çalışıyor.`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Sunucu http://0.0.0.0:${port} adresinde çalışıyor`);
 });
+
 

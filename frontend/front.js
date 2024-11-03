@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (response.ok) {
-            window.location.href = 'http://localhost:7474/home.html';
+            window.location.href = 'http://192.168.92.128:7474/home.html';
         } else {
             const data = await response.json();
             messageDiv.textContent = data.message || 'Bir hata oluştu';
